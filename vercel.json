@@ -1,0 +1,10 @@
+{
+  "functions": {
+    "api/index.rb": {
+      "runtime": "vercel-ruby@3.0.0"
+    }
+  },
+  "routes": [
+    { "src": "/(.*)", "dest": "api/index.rb" }
+  ]
+}
