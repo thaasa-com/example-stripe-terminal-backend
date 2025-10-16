@@ -43,17 +43,18 @@ We have a pre-built Docker image you can run locally if you're into the convenie
 ### Running on Vercel
 
 1. Install the [Vercel CLI](https://vercel.com/docs/cli) and log in with `vercel login`.
-2. From the repository directory, run `vercel link` to create or connect a project.
-3. Set the required environment variables:
+2. Install the JavaScript dependencies that power the Vercel serverless function with `npm install`.
+3. From the repository directory, run `vercel link` to create or connect a project.
+4. Set the required environment variables:
    ```sh
    vercel env add STRIPE_TEST_SECRET_KEY
    vercel env add STRIPE_ENV
    ```
    For development and testing you can set `STRIPE_ENV` to `test` (or leave it blank). Add `STRIPE_SECRET_KEY` later if you promote the project to production and want to use live mode.
-4. Deploy with `vercel --prod` (or `vercel` for a preview deployment).
-5. The deployed backend will expose the same routes as before (for example `POST /connection_token` and `POST /create_payment_intent`). Use the generated Vercel URL when configuring the example apps, then go to the [next steps](#next-steps) in this README.
+5. Deploy with `vercel --prod` (or `vercel` for a preview deployment).
+6. The deployed backend will expose the same routes as before (for example `POST /connection_token` and `POST /create_payment_intent`). Use the generated Vercel URL when configuring the example apps, then go to the [next steps](#next-steps) in this README.
 
-> ℹ️ **Ruby runtime version:** The project pins the serverless function runtime to `vercel-ruby@1.3.1` in [`vercel.json`](vercel.json). Keep that version (or update it to another published version) when deploying; using an unpublished version such as `vercel-ruby@3.0.0` causes Vercel's deployment to fail with `npm ERR! code ETARGET`/`npm ERR! notarget`.
+> ℹ️ The Vercel deployment now runs on a Node.js serverless function (`api/index.js`) that mirrors the Sinatra application's routes. This avoids the need for the deprecated `vercel-ruby` builder while preserving the same API surface.
 
 ### Running on Render
 
