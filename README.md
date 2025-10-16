@@ -53,6 +53,8 @@ We have a pre-built Docker image you can run locally if you're into the convenie
 4. Deploy with `vercel --prod` (or `vercel` for a preview deployment).
 5. The deployed backend will expose the same routes as before (for example `POST /connection_token` and `POST /create_payment_intent`). Use the generated Vercel URL when configuring the example apps, then go to the [next steps](#next-steps) in this README.
 
+> ℹ️ **Ruby runtime version:** The project pins the serverless function runtime to `vercel-ruby@1.3.1` in [`vercel.json`](vercel.json). Keep that version (or update it to another published version) when deploying; using an unpublished version such as `vercel-ruby@3.0.0` causes Vercel's deployment to fail with `npm ERR! code ETARGET`/`npm ERR! notarget`.
+
 ### Running on Render
 
 1. Set up a free [render account](https://dashboard.render.com/register).
