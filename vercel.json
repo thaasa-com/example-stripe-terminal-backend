@@ -1,10 +1,13 @@
 {
   "functions": {
-    "api/index.rb": {
-      "runtime": "vercel-ruby@3.0.0"
+    "api/**/*.js": {
+      "runtime": "nodejs18.x"
     }
   },
   "routes": [
-    { "src": "/(.*)", "dest": "api/index.rb" }
+    {
+      "src": "/connection_token",
+      "dest": "/api/connection-token.js"
+    }
   ]
 }
