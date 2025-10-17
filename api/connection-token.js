@@ -24,7 +24,8 @@ module.exports = async (req, res) => {
 
   try {
     // Validate API key
-    if (!stripe._api.auth) {
+    const apiKey = process.env.STRIPE_TEST_SECRET_KEY || process.env.STRIPE_SECRET_KEY;
+    if (!apiKey || apiKey.trim() === '') {
       res.status(400).json({
         error: 'Error: you provided an empty secret key. Please provide your test mode secret key. For more information, see https://stripe.com/docs/keys'
       });
