@@ -40,9 +40,22 @@ STRIPE_TEST_SECRET_KEY={YOUR_API_KEY}
 
 ## API Endpoints
 
-This backend provides the following endpoint:
+This backend mirrors the original example server's endpoints. When deployed to Vercel each
+route is available both at `/api/...` (the serverless function path) and at the root level
+(`/...`) for backwards compatibility.
 
-- `POST /connection_token` - Creates a connection token for Stripe Terminal
+| Method | Path | Description |
+| :-- | :-- | :-- |
+| `POST` | `/connection_token` | Creates a connection token for Stripe Terminal. |
+| `POST` | `/register_reader` | Registers a Verifone P400 reader to your Stripe account. |
+| `POST` | `/create_payment_intent` | Creates a card-present PaymentIntent. |
+| `POST` | `/capture_payment_intent` | Captures an existing PaymentIntent. |
+| `POST` | `/cancel_payment_intent` | Cancels a PaymentIntent. |
+| `POST` | `/create_setup_intent` | Creates a SetupIntent for saving cards. |
+| `POST` | `/attach_payment_method_to_customer` | Attaches a card-present PaymentMethod to an example customer. |
+| `POST` | `/update_payment_intent` | Updates allowed fields (currently `receipt_email`) on a PaymentIntent. |
+| `GET` | `/list_locations` | Lists up to 100 Terminal locations. |
+| `POST` | `/create_location` | Creates a new Terminal location. |
 
 Example request:
 ```bash

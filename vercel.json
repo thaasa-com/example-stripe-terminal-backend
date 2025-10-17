@@ -9,7 +9,43 @@
   "routes": [
     {
       "src": "/connection_token",
-      "dest": "/api/connection-token.js"
+      "dest": "/api/connection_token.js"
+    },
+    {
+      "src": "/register_reader",
+      "dest": "/api/register_reader.js"
+    },
+    {
+      "src": "/create_payment_intent",
+      "dest": "/api/create_payment_intent.js"
+    },
+    {
+      "src": "/capture_payment_intent",
+      "dest": "/api/capture_payment_intent.js"
+    },
+    {
+      "src": "/cancel_payment_intent",
+      "dest": "/api/cancel_payment_intent.js"
+    },
+    {
+      "src": "/create_setup_intent",
+      "dest": "/api/create_setup_intent.js"
+    },
+    {
+      "src": "/attach_payment_method_to_customer",
+      "dest": "/api/attach_payment_method_to_customer.js"
+    },
+    {
+      "src": "/update_payment_intent",
+      "dest": "/api/update_payment_intent.js"
+    },
+    {
+      "src": "/list_locations",
+      "dest": "/api/list_locations.js"
+    },
+    {
+      "src": "/create_location",
+      "dest": "/api/create_location.js"
     }
   ]
 }
